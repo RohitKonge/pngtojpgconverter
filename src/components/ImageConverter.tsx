@@ -15,7 +15,6 @@ export interface ImageFile {
 
 const ImageConverter: React.FC = () => {
   const [images, setImages] = useState<ImageFile[]>([]);
-  const [scrollPosition, setScrollPosition] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -153,15 +152,6 @@ const ImageConverter: React.FC = () => {
     URL.revokeObjectURL(link.href);
   };
 
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newPosition = parseInt(e.target.value);
-    setScrollPosition(newPosition);
-    if (sliderRef.current) {
-      const maxScroll = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
-      sliderRef.current.scrollLeft = (maxScroll * newPosition) / 100;
-    }
-  };
-
   return (
     <div className="container mx-auto px-4 max-w-6xl">
       <input
@@ -184,26 +174,22 @@ const ImageConverter: React.FC = () => {
           <div className="relative mb-4">
             <div 
               ref={sliderRef}
-              className="flex overflow-x-auto gap-4 pb-4 scroll-smooth hide-scrollbar"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              className="flex overflow-x-auto gap-4 pb-4 scroll-smooth"
+              style={{
+                scrollbarWidth: 'thin',
+                scrollbarColor: '#94A3B8 #E2E8F0'
+              }}
             >
               {images.map(image => (
-                <ImagePreview
-                  key={image.id}
-                  image={image}
-                  onDownload={() => downloadImage(image.id)}
-                  onRemove={() => removeImage(image.id)}
-                />
+                <div key={image.id} className="flex-shrink-0">
+                  <ImagePreview
+                    image={image}
+                    onDownload={() => downloadImage(image.id)}
+                    onRemove={() => removeImage(image.id)}
+                  />
+                </div>
               ))}
             </div>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={scrollPosition}
-              onChange={handleSliderChange}
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500 mt-4"
-            />
           </div>
 
           <div className="mt-6 flex flex-wrap gap-4">
