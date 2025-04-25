@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">About Our Converter</h4>
             <p className="text-sm leading-relaxed">
-              Our PNG to JPG converter is the web's most reliable tool for converting PNG images to JPG format. 
+              Our JPG to PNG converter is the web's most reliable tool for converting JPG/JPEG images to PNG format. 
               Fast, secure, and completely free to use.
             </p>
           </div>
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-semibold mb-4">Related Tools</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/jpg-to-png" className="hover:text-white transition-colors">JPG to PNG Converter</a>
+                <a href="/png-to-jpg" className="hover:text-white transition-colors">PNG to JPG Converter</a>
               </li>
               <li>
                 <a href="/image-compressor" className="hover:text-white transition-colors">Image Compressor</a>
@@ -50,9 +50,9 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm">©2007-{currentYear} PNG to JPG Converter. All rights reserved.</p>
+            <p className="text-sm">© {currentYear} JPG to PNG Converter. All rights reserved.</p>
             <div className="text-sm">
-              <span>Made with ❤️ by Adam Smith for the image conversion community</span>
+              <span>Made with ❤️ for the image conversion community</span>
             </div>
           </div>
         </div>

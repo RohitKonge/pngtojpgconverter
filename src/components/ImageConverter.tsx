@@ -23,7 +23,7 @@ const ImageConverter: React.FC = () => {
     if (!files) return;
 
     const newImages: ImageFile[] = Array.from(files)
-      .filter(file => file.type === 'image/png')
+      .filter(file => file.type === 'image/jpeg' || file.type === 'image/jpg')
       .map(file => ({
         id: Math.random().toString(36).substring(2, 15),
         file,
@@ -52,12 +52,12 @@ const ImageConverter: React.FC = () => {
           const ctx = canvas.getContext('2d');
           if (ctx) {
             ctx.drawImage(img, 0, 0);
-            const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+            const pngDataUrl = canvas.toDataURL('image/png');
             
             setImages(prev => 
               prev.map(imgItem => 
                 imgItem.id === image.id 
-                  ? { ...imgItem, convertedUrl: jpegDataUrl, status: 'converted' } 
+                  ? { ...imgItem, convertedUrl: pngDataUrl, status: 'converted' } 
                   : imgItem
               )
             );
@@ -127,7 +127,7 @@ const ImageConverter: React.FC = () => {
     
     const link = document.createElement('a');
     link.href = image.convertedUrl;
-    link.download = image.file.name.replace('.png', '.jpg');
+    link.download = image.file.name.replace('.jpg', '.png');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -139,7 +139,7 @@ const ImageConverter: React.FC = () => {
     images.forEach((image, index) => {
       if (image.convertedUrl) {
         const base64Data = image.convertedUrl.split(',')[1];
-        zip.file(`image-${index + 1}.jpg`, base64Data, { base64: true });
+        zip.file(`image-${index + 1}.png`, base64Data, { base64: true });
       }
     });
     
@@ -167,7 +167,7 @@ const ImageConverter: React.FC = () => {
       <input
         ref={fileInputRef}
         type="file"
-        accept="image/png"
+        accept="image/jpeg, image/jpg"
         multiple
         onChange={handleFileInputChange}
         className="hidden"
@@ -237,37 +237,37 @@ const ImageConverter: React.FC = () => {
       <div className="py-12">
         <div className="max-w-4xl mx-auto space-y-8 text-gray-600">
           <div className="space-y-6">
-            <h2 className="text-4xl font-semibold text-gray-800">PNG to JPG Conversion</h2>
+            <h2 className="text-4xl font-semibold text-gray-800">JPG to PNG Conversion</h2>
             <p className="text-lg leading-relaxed">
-              PNG and JPG files are both popular image formats used for different purposes. While they both handle image data like photographs, each format has its unique characteristics and advantages.
+              JPG and PNG files are both popular image formats used for different purposes. While they both handle image data like photographs, each format has its unique characteristics and advantages.
             </p>
           </div>
 
           <div className="space-y-4">
+            <p className="text-lg leading-relaxed">
+              JPG files use compression to reduce file size, which can result in some quality loss. However, this trade-off allows for smaller file sizes while maintaining good visual quality. JPGs are versatile, working well for both digital and print formats.
+            </p>
+            
             <p className="text-lg leading-relaxed">
               PNG files are specifically designed for lossless transmission over the internet. While they excel at maintaining image quality, they lack support for CMYK color spaces needed for professional printing. This makes them ideal for digital displays like computer monitors and smartphones, but less suitable for print materials.
             </p>
-            
-            <p className="text-lg leading-relaxed">
-              JPG (or JPEG) files work differently. They use compression to reduce file size, which can result in some quality loss. However, this trade-off allows for smaller file sizes while maintaining good visual quality. JPGs are versatile, working well for both digital and print formats.
-            </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-gray-800">Why Convert PNG to JPG?</h3>
+            <h3 className="text-2xl font-semibold text-gray-800">Why Convert JPG to PNG?</h3>
             <p className="text-lg leading-relaxed">
-              Converting from PNG to JPG can be necessary for several reasons. Professional printing services often require CMYK color information, which PNG files don't support. Additionally, PNG's transparency feature can cause issues when printing or uploading to certain platforms, where transparent areas might be filled with unexpected colors.
+              Converting from JPG to PNG can be necessary for several reasons. PNG files support transparency, which can be useful for web design and other digital applications. Additionally, PNG's lossless compression ensures that no quality is lost during the conversion process.
             </p>
             
             <p className="text-lg leading-relaxed">
-              JPG conversion solves these issues by providing predictable results without transparency and supporting CMYK colors for accurate printing. This makes JPGs more reliable for both print and web use where transparency isn't needed.
+              PNG conversion solves these issues by providing predictable results with transparency and maintaining image quality. This makes PNGs more reliable for both web and digital use where transparency is needed.
             </p>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold text-gray-800">How to Use Our Converter</h3>
             <p className="text-lg leading-relaxed">
-              Using our converter is simple. Click the "Select Files" button or drag and drop your PNG files into the upload area. You can convert up to 20 files at once. Once uploaded, your images will be converted automatically in real-time.
+              Using our converter is simple. Click the "Select Files" button or drag and drop your JPG files into the upload area. You can convert up to 20 files at once. Once uploaded, your images will be converted automatically in real-time.
             </p>
             
             <p className="text-lg leading-relaxed">

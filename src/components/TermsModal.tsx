@@ -26,7 +26,7 @@ const TermsModal: React.FC<TermsModalProps> = ({ isOpen, onClose }) => {
           <div className="space-y-8 text-gray-600">
             <div className="space-y-4">
               <p className="text-lg">
-                Welcome to our PNG to JPG Converter. By using our service, you agree to these terms and privacy policy.
+                Welcome to our JPG to PNG Converter. By using our service, you agree to these terms and privacy policy.
               </p>
             </div>
 
@@ -68,12 +68,12 @@ const TermsModal: React.FC<TermsModalProps> = ({ isOpen, onClose }) => {
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold text-gray-800">Contact</h3>
               <p className="text-lg">
-                If you have any questions about these terms or our privacy policy, please contact us at support@pngtojpgconverter.com
+                If you have any questions about these terms or our privacy policy, please contact us at support@jpgtopngconverter.com
               </p>
             </div>
 
             <div className="pt-4 text-sm text-gray-500">
-              Last updated: March 2024
+              Last updated: April 2025
             </div>
           </div>
         </div>

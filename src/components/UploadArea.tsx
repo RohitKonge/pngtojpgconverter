@@ -16,16 +16,16 @@ const UploadArea: React.FC<UploadAreaProps> = ({ onDragOver, onDrop, onClick }) 
       onClick={onClick}
       role="button"
       tabIndex={0}
-      aria-label="Upload PNG files"
+      aria-label="Upload JPG/JPEG files"
       data-testid="upload-area"
     >
       <div className="text-center">
         <Upload className="mx-auto h-20 w-20 text-blue-400 mb-6" aria-hidden="true" />
-        <h2 className="text-2xl font-medium text-gray-700 mb-3">Upload PNG images</h2>
+        <h2 className="text-2xl font-medium text-gray-700 mb-3">Upload JPG/JPEG images</h2>
         <div className="space-y-4">
-          <p className="text-gray-500">Drag and drop your PNG files here, or click to browse</p>
+          <p className="text-gray-500">Drag and drop your JPG/JPEG files here, or click to browse</p>
           <p className="text-sm text-gray-500">
-            <strong>Supported format:</strong> PNG images up to 50MB
+            <strong>Supported formats:</strong> JPG, JPEG images up to 50MB
           </p>
           <p className="text-sm text-gray-500">
             <strong>Privacy:</strong> Files are processed locally in your browser
