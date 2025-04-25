@@ -9,7 +9,7 @@ function App() {
       <header className="py-10">
         <div className="container mx-auto px-4">
           <h1 className="text-8xl font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent text-center">
-            JPG to PNG
+            JPG to PNG Converter
           </h1>
           <p className="mt-4 text-xl text-center text-gray-600 max-w-2xl mx-auto">
             Convert JPG/JPEG images to PNG format instantly. Free, secure, and easy to use. No registration required.
