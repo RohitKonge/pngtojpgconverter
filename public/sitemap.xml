@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://your-domain.com/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://jpg2png.xyz/</loc>
+    <lastmod>2025-04-28</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/jpg-to-png</loc>
-    <lastmod>2024-04-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://jpg2png.xyz/convert</loc>
+    <lastmod>2025-04-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jpg2png.xyz/bulk-convert</loc>
+    <lastmod>2025-04-28</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/png-to-jpg</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://jpg2png.xyz/privacy-policy</loc>
+    <lastmod>2025-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/image-compressor</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://your-domain.com/bulk-image-converter</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://jpg2png.xyz/terms</loc>
+    <lastmod>2025-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

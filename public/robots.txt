@@ -3,7 +3,18 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://jpg2png.xyz/sitemap.xml
 
 # Optimize crawling
-Crawl-delay: 1
+Crawl-delay: 0.5
+
+# Important pages
+Allow: /convert
+Allow: /bulk-convert
+Allow: /privacy-policy
+Allow: /terms
+
+# Block utility pages
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /assets/temp/
