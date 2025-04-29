@@ -123,7 +123,7 @@ function App() {
                 </li>
                 <li className="flex items-center space-x-2 text-blue-700">
                   <span>✓</span>
-                  <span>Digital photo albums</span>
+                  <span>Digital photo albums.</span>
                 </li>
               </ul>
             </div>
