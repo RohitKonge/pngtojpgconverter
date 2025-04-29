@@ -30,7 +30,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image, onDownload, onRemove
           {image.status === 'converting' && (
             <div className="flex flex-col items-center justify-center">
               <Loader size={24} className="text-blue-500 animate-spin mb-2" />
-              <div className="text-xs text-gray-500">Converting to PNG...</div>
+              <div className="text-xs text-gray-500">Converting to JPG...</div>
             </div>
           )}
           
@@ -41,7 +41,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image, onDownload, onRemove
           {image.status === 'converted' && image.convertedUrl && (
             <img 
               src={image.convertedUrl} 
-              alt="Converted PNG" 
+              alt="Converted JPG" 
               className="max-w-full max-h-full object-contain"
             />
           )}
@@ -51,7 +51,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ image, onDownload, onRemove
       {image.status === 'converted' && (
         <div className="p-3 bg-green-50 border-t border-green-100">
           <div className="flex justify-between items-center">
-            <span className="text-xs text-green-600">Ready as PNG</span>
+            <span className="text-xs text-green-600">Ready as JPG</span>
             <button
               onClick={onDownload}
               className="text-xs flex items-center gap-1 text-green-600 hover:text-green-700 transition-colors"

@@ -9,7 +9,7 @@ const Header: React.FC = () => {
           <div className="flex items-center gap-3">
             <Image className="h-8 w-8 text-blue-600" />
             <a href="/" className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors">
-              JPG to PNG Converter
+              PNG to JPG Converter
             </a>
           </div>
           
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
                 <a href="/" className="hover:text-blue-600 transition-colors">Home</a>
               </li>
               <li>
-                <a href="/convert" className="hover:text-blue-600 transition-colors">Convert JPG to PNG</a>
+                <a href="/convert" className="hover:text-blue-600 transition-colors">Convert PNG to JPG</a>
               </li>
               <li>
                 <a href="/bulk-convert" className="hover:text-blue-600 transition-colors">Bulk Converter</a>

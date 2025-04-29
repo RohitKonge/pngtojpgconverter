@@ -22,7 +22,7 @@ const ImageConverter: React.FC = () => {
     if (!files) return;
 
     const newImages: ImageFile[] = Array.from(files)
-      .filter(file => file.type === 'image/jpeg' || file.type === 'image/jpg')
+      .filter(file => file.type === 'image/png')
       .map(file => ({
         id: Math.random().toString(36).substring(2, 15),
         file,
@@ -50,13 +50,18 @@ const ImageConverter: React.FC = () => {
           
           const ctx = canvas.getContext('2d');
           if (ctx) {
+            // Set white background for transparent PNGs
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw the image on top
             ctx.drawImage(img, 0, 0);
-            const pngDataUrl = canvas.toDataURL('image/png');
+            const jpgDataUrl = canvas.toDataURL('image/jpeg', 0.92); // 0.92 quality for good balance
             
             setImages(prev => 
               prev.map(imgItem => 
                 imgItem.id === image.id 
-                  ? { ...imgItem, convertedUrl: pngDataUrl, status: 'converted' } 
+                  ? { ...imgItem, convertedUrl: jpgDataUrl, status: 'converted' } 
                   : imgItem
               )
             );
@@ -126,7 +131,7 @@ const ImageConverter: React.FC = () => {
     
     const link = document.createElement('a');
     link.href = image.convertedUrl;
-    link.download = image.file.name.replace('.jpg', '.png');
+    link.download = image.file.name.replace('.png', '.jpg');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -138,7 +143,7 @@ const ImageConverter: React.FC = () => {
     images.forEach((image, index) => {
       if (image.convertedUrl) {
         const base64Data = image.convertedUrl.split(',')[1];
-        zip.file(`image-${index + 1}.png`, base64Data, { base64: true });
+        zip.file(`image-${index + 1}.jpg`, base64Data, { base64: true });
       }
     });
     
@@ -157,7 +162,7 @@ const ImageConverter: React.FC = () => {
       <input
         ref={fileInputRef}
         type="file"
-        accept="image/jpeg, image/jpg"
+        accept="image/png"
         multiple
         onChange={handleFileInputChange}
         className="hidden"
@@ -223,37 +228,37 @@ const ImageConverter: React.FC = () => {
       <div className="py-12">
         <div className="max-w-4xl mx-auto space-y-8 text-gray-600">
           <div className="space-y-6">
-            <h2 className="text-4xl font-semibold text-gray-800">JPG to PNG Conversion</h2>
+            <h2 className="text-4xl font-semibold text-gray-800">PNG to JPG Conversion</h2>
             <p className="text-lg leading-relaxed">
-              JPG and PNG files are both popular image formats used for different purposes. While they both handle image data like photographs, each format has its unique characteristics and advantages.
+              PNG and JPG files are both popular image formats used for different purposes. While PNG files excel at maintaining quality and supporting transparency, JPG files offer superior compression for photos and complex images.
             </p>
           </div>
 
           <div className="space-y-4">
             <p className="text-lg leading-relaxed">
-              JPG files use compression to reduce file size, which can result in some quality loss. However, this trade-off allows for smaller file sizes while maintaining good visual quality. JPGs are versatile, working well for both digital and print formats.
+              PNG files are lossless and support transparency, making them ideal for graphics with text, logos, and images that require crisp edges. However, they can result in larger file sizes, especially for photographs and complex images.
             </p>
             
             <p className="text-lg leading-relaxed">
-              PNG files are specifically designed for lossless transmission over the internet. While they excel at maintaining image quality, they lack support for CMYK color spaces needed for professional printing. This makes them ideal for digital displays like computer monitors and smartphones, but less suitable for print materials.
+              JPG files use sophisticated compression algorithms that make them perfect for photographs and images with gradual color transitions. While they don't support transparency, they can dramatically reduce file size while maintaining good visual quality for most use cases.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-gray-800">Why Convert JPG to PNG?</h3>
+            <h3 className="text-2xl font-semibold text-gray-800">Why Convert PNG to JPG?</h3>
             <p className="text-lg leading-relaxed">
-              Converting from JPG to PNG can be necessary for several reasons. PNG files support transparency, which can be useful for web design and other digital applications. Additionally, PNG's lossless compression ensures that no quality is lost during the conversion process.
+              Converting from PNG to JPG can be beneficial when you need to reduce file size for web usage, email attachments, or storage constraints. JPG files are typically much smaller than their PNG counterparts, especially for photographs and complex images.
             </p>
             
             <p className="text-lg leading-relaxed">
-              PNG conversion solves these issues by providing predictable results with transparency and maintaining image quality. This makes PNGs more reliable for both web and digital use where transparency is needed.
+              While this conversion may result in slight quality loss due to JPG's lossy compression, our converter uses optimal settings to maintain the best possible visual quality while achieving significant file size reduction.
             </p>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold text-gray-800">How to Use Our Converter</h3>
             <p className="text-lg leading-relaxed">
-              Using our converter is simple. Click the "Select Files" button or drag and drop your JPG files into the upload area. You can convert up to 20 files at once. Once uploaded, your images will be converted automatically in real-time.
+              Using our converter is simple. Click the "Select Files" button or drag and drop your PNG files into the upload area. You can convert up to 20 files at once. Once uploaded, your images will be converted automatically in real-time.
             </p>
             
             <p className="text-lg leading-relaxed">
@@ -261,14 +266,14 @@ const ImageConverter: React.FC = () => {
             </p>
             
             <p className="text-lg leading-relaxed">
-              Remember to download your converted files within one hour, as they're automatically removed from our servers after this time for your privacy and security.
+              Remember that all conversion happens directly in your browser - your files are never uploaded to any server, ensuring complete privacy and security.
             </p>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold text-gray-800">Safety and Privacy</h3>
             <p className="text-lg leading-relaxed">
-              Our conversion process is completely safe. We create copies of your original files, leaving your source files untouched on your device. All conversions happen in your browser, and we automatically delete all uploaded and converted files after one hour to ensure your privacy.
+              Our conversion process is completely safe and private. All processing happens locally in your browser - your files never leave your device. We don't store any of your images, and the conversion process creates new files while leaving your original PNG files untouched.
             </p>
           </div>
         </div>

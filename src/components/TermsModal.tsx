@@ -26,7 +26,7 @@ const TermsModal: React.FC<TermsModalProps> = ({ isOpen, onClose }) => {
           <div className="space-y-8 text-gray-600">
             <div className="space-y-4">
               <p className="text-lg">
-                Welcome to our JPG to PNG Converter. By using our service, you agree to these terms and privacy policy.
+                Welcome to our PNG to JPG Converter. By using our service, you agree to these terms and privacy policy.
               </p>
             </div>
 
@@ -47,7 +47,7 @@ const TermsModal: React.FC<TermsModalProps> = ({ isOpen, onClose }) => {
               <h3 className="text-2xl font-semibold text-gray-800">Privacy Policy</h3>
               <ul className="list-disc pl-6 space-y-3">
                 <li>We do not store your images - all conversions happen in your browser.</li>
-                <li>Your files are automatically deleted after one hour.</li>
+                <li>Your files are never uploaded to any server.</li>
                 <li>We don't collect any personal information.</li>
                 <li>We use essential cookies to improve your experience.</li>
                 <li>We don't share any data with third parties.</li>
@@ -68,7 +68,7 @@ const TermsModal: React.FC<TermsModalProps> = ({ isOpen, onClose }) => {
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold text-gray-800">Contact</h3>
               <p className="text-lg">
-                If you have any questions about these terms or our privacy policy, please contact us at support@jpgtopngconverter.com
+                If you have any questions about these terms or our privacy policy, please contact us at support@png2jpg.site
               </p>
             </div>
 

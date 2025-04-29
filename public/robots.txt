@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://jpg2png.xyz/sitemap.xml
+Sitemap: https://png2jpg.site/sitemap.xml
 
 # Optimize crawling
 Crawl-delay: 0.5
