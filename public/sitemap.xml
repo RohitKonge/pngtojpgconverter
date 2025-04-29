@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://png2jpg.site/</loc>
     <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://png2jpg.site/pngtojpg.svg</image:loc>
+      <image:title>Free PNG to JPG Converter Online</image:title>
+      <image:caption>Convert PNG images to JPG format instantly - Free &amp; High Quality</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://png2jpg.site/convert</loc>
     <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://png2jpg.site/pngtojpg.svg</image:loc>
+      <image:title>Convert PNG to JPG Online</image:title>
+      <image:caption>Free PNG to JPG conversion tool - No registration required</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://png2jpg.site/bulk-convert</loc>
     <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://png2jpg.site/pngtojpg.svg</image:loc>
+      <image:title>Bulk PNG to JPG Converter</image:title>
+      <image:caption>Convert multiple PNG files to JPG at once - Free unlimited conversions</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://png2jpg.site/privacy-policy</loc>

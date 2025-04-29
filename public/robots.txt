@@ -1,20 +1,27 @@
-# Allow all web crawlers
+# Allow all web crawlers with optimized crawling
 User-agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://png2jpg.site/sitemap.xml
-
-# Optimize crawling
-Crawl-delay: 0.5
-
-# Important pages
 Allow: /convert
 Allow: /bulk-convert
 Allow: /privacy-policy
 Allow: /terms
 
-# Block utility pages
+# Optimize crawling rate
+Crawl-delay: 0.1
+
+# Sitemap location
+Sitemap: https://png2jpg.site/sitemap.xml
+
+# Block utility and temporary folders
 Disallow: /api/
 Disallow: /cdn-cgi/
 Disallow: /assets/temp/
+
+# Special directive for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0
